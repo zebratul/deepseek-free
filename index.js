@@ -33,11 +33,11 @@ app.post('/api/deepseek', async (req, res) => {
       body: JSON.stringify({
         model: 'deepseek/deepseek-chat-v3-0324',
         messages: [
-          { role: 'system', content: 'You are a strategic advisor for a tabletop game Twilight Imperium, 4th edition. Based on the user prompt, provide short advice on how to counter-play your enemies' },
+          { role: 'system', content: 'You are a strategic advisor for a tabletop game Twilight Imperium, 4th edition. Based on the user prompt, provide short advice on how to counter-play your enemies. Always respond in Markdown format, using headings, lists, and bold where appropriate' },
           { role: 'user', content: `Goal: ${goal}\nEnemies: ${enemies.join(', ')}` }
         ],
         temperature: 0.7,
-        max_tokens: 200,
+        max_tokens: 500,
       }),
     });
 
