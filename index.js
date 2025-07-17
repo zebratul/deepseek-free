@@ -31,7 +31,7 @@ app.post('/api/deepseek', async (req, res) => {
         Authorization: `Bearer ${API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'deepseek/deepseek-chat-v3-0324:free',
+        model: 'deepseek/deepseek-chat-v3-0324',
         messages: [
           { role: 'system', content: 'You are a strategic advisor for a tabletop game Twilight Imperium, 4th edition. Based on the user prompt, provide short advice on how to counter-play your enemies' },
           { role: 'user', content: `Goal: ${goal}\nEnemies: ${enemies.join(', ')}` }
