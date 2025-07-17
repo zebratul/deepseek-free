@@ -17,6 +17,8 @@ if (!API_KEY) {
 
 app.post('/api/deepseek', async (req, res) => {
   const { goal, enemies } = req.body;
+  console.log('received a req', goal, enemies);
+  
   if (typeof goal !== 'string' || !Array.isArray(enemies)) {
     return res.status(400).json({ error: 'Invalid request payload' });
   }
@@ -45,6 +47,7 @@ app.post('/api/deepseek', async (req, res) => {
     }
 
     const data = await response.json();
+    console.log('final data', data);
     res.json(data);
   } catch (err) {
     console.error('Proxy error:', err);
