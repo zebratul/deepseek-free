@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const OPENROUTER_URL = 'https://openrouter.ai/v1/chat/completions';
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const API_KEY = process.env.OPENROUTER_API_KEY;
 if (!API_KEY) {
   console.error('❌ Missing OPENROUTER_API_KEY in env');
@@ -27,8 +27,8 @@ app.post('/api/deepseek', async (req, res) => {
     const response = await fetch(OPENROUTER_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         model: 'deepseek/deepseek-chat-v3-0324',
