@@ -47,7 +47,10 @@ app.post('/api/deepseek', async (req, res) => {
     }
 
     const data = await response.json();
-    console.log('final data', data);
+    console.log('final data:', data);
+    const msg = data.choices?.[0]?.message?.content;
+    console.log('message:', msg);
+
     res.json(data);
   } catch (err) {
     console.error('Proxy error:', err);
